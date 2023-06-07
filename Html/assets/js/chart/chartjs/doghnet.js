@@ -38,39 +38,6 @@ Chart.defaults.global = {
     onAnimationProgress: function() {},
     onAnimationComplete: function() {}
 };
-var barData = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [{
-        label: "My First dataset",
-        fillColor: "rgba(36, 105, 92, 0.4)",
-        strokeColor: vihoAdminConfig.primary,
-        highlightFill: "rgba(36, 105, 92, 0.6)",
-        highlightStroke: vihoAdminConfig.primary,
-        data: [35, 59, 80, 81, 56, 55, 40]
-    }, {
-        label: "My Second dataset",
-        fillColor: "rgba(186, 137, 93, 0.4)",
-        strokeColor: vihoAdminConfig.secondary,
-        highlightFill: "rgba(186, 137, 93, 0.6)",
-        highlightStroke: vihoAdminConfig.secondary,
-        data: [28, 48, 40, 19, 86, 27, 90]
-    }]
-};
-var barOptions = {
-    scaleBeginAtZero: true,
-    scaleShowGridLines: true,
-    scaleGridLineColor: "rgba(0,0,0,0.1)",
-    scaleGridLineWidth: 1,
-    scaleShowHorizontalLines: true,
-    scaleShowVerticalLines: true,
-    barShowStroke: true,
-    barStrokeWidth: 2,
-    barValueSpacing: 5,
-    barDatasetSpacing: 1,
-};
-var barCtx = document.getElementById("myBarGraph").getContext("2d");
-var myBarChart = new Chart(barCtx).Bar(barData, barOptions);
-
 
 
 var doughnutData = [
@@ -88,8 +55,8 @@ var doughnutData = [
     },
     {
         value: 100,
-        color: "#222222",
-        highlight: "#222222",
+        color: "#616161",
+        highlight: "#0B08CCBD",
         label: "Success"
     }
 ];
@@ -104,5 +71,10 @@ var doughnutOptions = {
     animateScale: false,
     legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
 };
-var doughnutCtx = document.getElementById("myDoughnutGraph").getContext("2d");
+var doughnutCtx = document.getElementById("DoughnutGraph").getContext("2d");
 var myDoughnutChart = new Chart(doughnutCtx).Doughnut(doughnutData, doughnutOptions);
+
+
+
+
+    
