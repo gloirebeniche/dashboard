@@ -114,6 +114,14 @@ body {
   color: #242934;
   background-color: #f5f7fb; }
 
+  .accordion-body{
+    background-color:  white;
+    border:#43A047;
+  }
+  .accordion{
+    border:#43A047;
+  }
+  
 ul {
   padding-left: 0px;
   list-style-type: none;
@@ -30948,3 +30956,5 @@ span.twitter-typeahead .tt-suggestion {
     60. RTL CSS Ends
 ==========================**/
 /*# sourceMappingURL=style.css.map */
+
+
