@@ -37,6 +37,8 @@
     <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+
     <!-- datatable jquery -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
  
@@ -97,9 +99,7 @@
                   <li class="dropdown"><a class="nav-link menu" href="recette-beneficiaire.html"><i data-feather="airplay"></i><span>Recette par bénéficiaire</span></a>
                   
                   </li>
-                  <li class="dropdown"><a class="nav-link menu" href="recette-taxe.html"><i data-feather="airplay"></i><span>Recette par Taxe</span></a>
-                    
-                  </li>
+                
                 
                   <li class="dropdown"><a class="nav-link menu" href="edit-profile.html"><i data-feather="user-check"></i><span>Mon profil</span></a>
                 
@@ -124,11 +124,9 @@
               </div>
             </div>
           </div>
-          <!-- container-fluid 2 start -->
-      
-          <!-- container-fluid 2 ends -->
-               <!-- Container-fluid starts-->
-          <div class="container-fluid ">
+  
+          <!-- Container-fluid starts-->
+          <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6 col-xl-4 col-lg-6">
                 <div class="card o-hidden border-0">
@@ -166,99 +164,303 @@
                   </div>
                 </div>
               </div>
+         </div>
+         
+    </div>
+          
+        <!-- container-datable start-->
+    <div class="container-fluid">
+      <div class="row">
              
+        <div class="col-xl-4 col-md-12 box-col-12">
+          <select class="form-select" aria-label="Default select example">
+            <option value="1">Chriffre d'affaires par taxe</option>
+            <option value="2">Chriffre d'affaires par régions</option>
+            <option value="3">Chffre d'affaires par contribuables</option>
            
-          <!-- Container-fluid starts-->
-          <div class="container-fluid">
-           
-            <div class="row">
+          </select>
+        
+        <div class="card">
+          <div class="card-header pb-0">
+            <h5>chiffre d'affaire global</h5>
+          </div>
+          <div class="card-body chart-block">
+            <canvas id="DoughnutGraph"></canvas>
+          </div>
+        </div>
+     
+      </div>
+        <div class="col-xl-8 col-md-12 box-col-12">
+          <div class="accordion " id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  Chiffre d'affaires par taxe
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body ">
                 
-              <div class="col-xl-6 col-md-12 box-col-12">
-                <div class="card">
-                  <div class="card-header pb-0">
-                    <h5>GRAPHE 4</h5>
+                    <table id="myTable" class="display " style="width:100%">
+                      <thead>
+                          <tr>
+                              <th>Désignations</th>
+                              <th>chiffre d'affaires</th>
+                              <th>jours</th>
+                              <th>semaines</th>
+                              <th>mois</th>
+                              <th>an</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                       
+                          <tr>
+                              <td>Autorisation de transport public </td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Activité Connexe de transport </td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Taxe libre</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>  
+                          <tr>
+                              <td>Taxe directe</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Agrément des entreprises de plaques minéralogiques</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Agrément contrôle technique</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                   
+                      </tbody>
+                    
+                  </table>
+
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                  Chriffre d'affaires par régions
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                  <div class="card-body">
+                    <table id="myTable1" class="display" style="width:100%">
+                      <thead>
+                          <tr>
+                              <th>Désignations</th>
+                              <th>chiffre d'affaires</th>
+                              <th>jours</th>
+                              <th>semaines</th>
+                              <th>mois</th>
+                              <th>an</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                       
+                          <tr>
+                              <td>Brazzaville </td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Pointe-Noire </td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Dolisie</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>  
+                          <tr>
+                              <td>Cuvette</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Cuvette Ouest</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Sangha</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr> 
+                           <tr>
+                              <td>Likouala</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr> <tr>
+                              <td>Pool</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr> 
+                          <tr>
+                              <td>Niari</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Plateaux</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Kouilou</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Bouenza</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                   
+                      </tbody>
+                    
+                  </table>
                   </div>
-                  <div class="card-body chart-block">
-                    <canvas id="DoughnutGraph"></canvas>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                  Chriffre d'affaires par contribuables
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                <div class="accordion-body c-white">
+                  <div class="card-body ">
+                    <table id="myTable2" class="display" style="width:100%">
+                      <thead>
+                          <tr>
+                              <th>Désignations</th>
+                              <th>chiffre d'affaires</th>
+                              <th>jours</th>
+                              <th>semaines</th>
+                              <th>mois</th>
+                              <th>an</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                       
+                          <tr>
+                              <td>Particuliers </td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Entreprises</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>
+                          <tr>
+                              <td>Véhicules</td>
+                              <td>200000</td>
+                              <td>10000</td>
+                              <td>6000</td>
+                              <td>86868</td>
+                              <td>123244</td>
+                          </tr>  
+                        
+                   
+                      </tbody>
+                    
+                  </table>
                   </div>
                 </div>
-             
+              </div>
             </div>
-                <div class="col-xl-6 col-md-12 box-col-12">
-             
-                       <table id="myTable" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Désignations</th>
-                                <th>chiffre d'affaires</th>
-                                <th>jours</th>
-                                <th>semaines</th>
-                                <th>mois</th>
-                                <th>an</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                         
-                            <tr>
-                                <td>Autorisation de transport public </td>
-                                <td>200000</td>
-                                <td>10000</td>
-                                <td>6000</td>
-                                <td>86868</td>
-                                <td>123244</td>
-                            </tr>
-                            <tr>
-                                <td>Activité Connexe de transport </td>
-                                <td>200000</td>
-                                <td>10000</td>
-                                <td>6000</td>
-                                <td>86868</td>
-                                <td>123244</td>
-                            </tr>
-                            <tr>
-                                <td>Taxe libre</td>
-                                <td>200000</td>
-                                <td>10000</td>
-                                <td>6000</td>
-                                <td>86868</td>
-                                <td>123244</td>
-                            </tr>  
-                            <tr>
-                                <td>Taxe directe</td>
-                                <td>200000</td>
-                                <td>10000</td>
-                                <td>6000</td>
-                                <td>86868</td>
-                                <td>123244</td>
-                            </tr>
-                            <tr>
-                                <td>Agrément des entreprises de plaques minéralogiques</td>
-                                <td>200000</td>
-                                <td>10000</td>
-                                <td>6000</td>
-                                <td>86868</td>
-                                <td>123244</td>
-                            </tr>
-                            <tr>
-                                <td>Agrément contrôle technique</td>
-                                <td>200000</td>
-                                <td>10000</td>
-                                <td>6000</td>
-                                <td>86868</td>
-                                <td>123244</td>
-                            </tr>
-                     
-                        </tbody>
-                      
-                    </table>
-            
-                  </div>
-        
           </div>
-          <!-- Container-fluid Ends-->
         </div>
-          <!-- Container-fluid Ends-->
-        </div>
+   
+      </div>
+  </div>
+
+  </div>
+        <!-- Container-fluid Ends-->
+     
         <!-- footer start-->
         <footer class="footer">
           <div class="container-fluid">
@@ -330,6 +532,12 @@
     <script>
       $(document).ready(function() {
         $('#myTable').DataTable();
+      });
+      $(document).ready(function() {
+        $('#myTable1').DataTable();
+      });
+      $(document).ready(function() {
+        $('#myTable2').DataTable();
       });
     </script>
    
