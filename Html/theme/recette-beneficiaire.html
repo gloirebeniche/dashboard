@@ -90,9 +90,7 @@
                   <li class="dropdown"><a class="nav-link menu" href="recette-beneficiaire.html"><i data-feather="airplay"></i><span>Recette par bénéficiaire</span></a>
                   
                   </li>
-                  <li class="dropdown"><a class="nav-link menu" href="recette-taxe.html"><i data-feather="airplay"></i><span>Recette par Taxe</span></a>
-                    
-                  </li>
+                
                 
                   <li class="dropdown"><a class="nav-link menu" href="edit-profile.html"><i data-feather="user-check"></i><span>Mon profil</span></a>
                 
@@ -119,30 +117,38 @@
           </div>
           <!-- Container-fluid starts-->
           <div class="container-fluid">
-            <div class="row">
-              <div class="col-xl-6 col-md-12 box-col-12">
-                <div class="card">
-                  <div class="card-header pb-0">
-                    <h5>GRAPHE 1</h5>
+              <div class="row">
+                      
+                    <div class="col-xl-6 col-md-12 box-col-12">
+                      <select class="form-select" aria-label="Default select example">
+                        <option value="1">Chriffre d'affaires par beneficiaire</option>
+                        <option value="2">Tresor</option>
+                        <option value="3">DGTT</option>
+                        <option value="3">ARPCE</option>
+                        <option value="3">Operateur</option>
+                        <option value="3">Szitch</option>
+                      </select>
+                    
+                      <div class="card">
+                        <div class="card-body ">
+                          <canvas id="bar"></canvas>
+                        </div>
+                      </div>
                   </div>
-                  <div class="card-body chart-block">
-                    <canvas id="myBarGraph"></canvas>
+                   <div class="col-xl-6 col-md-12 box-col-12">
+                      <select class="form-select" aria-label="Default select example">
+                        <option value="1">Chriffre d'affaires par taxe</option>
+                        <option value="2">Chriffre d'affaires par régions</option>
+                        <option value="3">Chffre d'affaires par contribuables</option>
+                      </select>
+                    
+                      <div class="card">
+                        <div class="card-body ">
+                          <canvas id="doughnut"></canvas>
+                        </div>
+                      </div>
                   </div>
-                </div>
               </div>
-           
-              <div class="col-xl-6 col-md-12 box-col-12">
-                <div class="card">
-                  <div class="card-header pb-0">
-                    <h5>GRAPHE 4</h5>
-                  </div>
-                  <div class="card-body chart-block chart-vertical-center">
-                    <canvas id="myDoughnutGraph"></canvas>
-                  </div>
-                </div>
-              </div>
-             
-            </div>
           </div>
           <!-- Container-fluid Ends-->
         </div>
@@ -171,13 +177,78 @@
     <script src="../assets/js/bootstrap/popper.min.js"></script>
     <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
     <!-- Plugins JS start-->
-    <script src="../assets/js/chart/chartjs/chart.min.js"></script>
-    <script src="../assets/js/chart/chartjs/chart.custom.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
     <!-- login js-->
     <!-- Plugin used-->
+    <script>
+      const ctx = document.getElementById('bar');
+      
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet','août','septembre', 'octobre', 'novembre', 'decembre'],
+          datasets: [{
+            label: '# of Votes',
+            data: [90, 190, 345, 500, 200, 420,1030,980,854,678,731,690],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      const ctx1 = document.getElementById('doughnut');
+      
+      new Chart(ctx1, {
+        type: 'doughnut',
+        data: {
+          labels: ['TRESOR', 'DGTT', 'ARPCE', 'OPERATEUR', 'SWITCH', 'TEST'],
+          datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      const ctx3 = document.getElementById('line');
+      
+      new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: ['TRESOR', 'DGTT', 'ARPCE', 'OPERATEUR', 'SWITCH', 'TEST'],
+          datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+    </script>
   </body>
 </html>
