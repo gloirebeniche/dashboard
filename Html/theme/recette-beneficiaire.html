@@ -189,7 +189,7 @@
     <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
     <!-- Plugins JS start-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
@@ -261,11 +261,13 @@
       });
 
       const ctx3 = document.getElementById('pie');
-      
+
+   
+      const labels = ['TRESOR', 'DGTT', 'ARPCE', 'OPERATEUR', 'SWITCH', 'TEST'];
       new Chart(ctx3, {
         type: 'pie',
         data: {
-          labels: ['TRESOR', 'DGTT', 'ARPCE', 'OPERATEUR', 'SWITCH', 'TEST'],
+         // labels: ['TRESOR', 'DGTT', 'ARPCE', 'OPERATEUR', 'SWITCH', 'TEST'],
           datasets: [{
             label: '# of Votes',
             data: [12, 19, 3, 5, 2, 3],
@@ -273,8 +275,33 @@
           }]
         },
         options: {
+          plugins:{
+            tooltip:{
+              enabled:false
+            },
+            datalabels:{
+              formatter:(value,context)=>{
+                const dataMontant = context.chart.data.datasets[0].data;
+                //const dataName = context.chart.data.labels[context.dataIndex];
+                const dataName = labels[context.dataIndex];
+
+                console.log(value);
+
+               function totalSum(total,datapoints){
+                    return total + datapoints;
+                }
+
+               const totalMontant = dataMontant.reduce(totalSum,0);
+               const pourcentageValue = (value / totalMontant * 100).toFixed(1);
+             // const display =[  `${pourcentageValue}%`, `${dataName}`];
+             const display =[  `${pourcentageValue}%`, `${dataName}`];
+                return display;
+              }
+            }
+          }
         
-        }
+        },
+        plugins:[ChartDataLabels]
       });
 
     </script>
