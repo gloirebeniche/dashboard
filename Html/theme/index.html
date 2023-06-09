@@ -526,7 +526,8 @@
      <!-- Plugins JS start-->
       <script src="../assets/js/chart/chartjs/doghnet.js"></script> 
      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-    <!-- Theme js-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script>
+     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
     <!-- login js-->
@@ -549,21 +550,19 @@
       
         new Chart(ctx, {
           type: 'doughnut',
+          Plugins:[ChartDataLabels],
           data: {
             labels: ['TRESOR', 'DGTT', 'ARPCE', 'OPERATEUR','TIMBRE', 'SWITCH', 'CODAMI','MAIRIE','FOND ROUTIER','CONTROLE TECHNIQUE','FORMATION', 'PROFESSIONEL CONNEXE'],
             datasets: [{
-              label: '# of Votes',
+             // label:['TRESOR', 'DGTT', 'ARPCE', 'OPERATEUR','TIMBRE', 'SWITCH', 'CODAMI','MAIRIE','FOND ROUTIER','CONTROLE TECHNIQUE','FORMATION', 'PROFESSIONEL CONNEXE'],
               data: [29, 69, 46, 59, 20, 50,70,45,76,89,99,13,33],
               borderWidth: 1
             }]
           },
           options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
+            
+          },
+         
         });
 
     

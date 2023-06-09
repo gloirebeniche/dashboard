@@ -118,38 +118,36 @@
              <div class="container-fluid">
                 <div class="row">
                 <div class="col-xl-6">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>liste des bénéficiaires</option>
-                    <option value="1">TRESOR</option>
-                    <option value="2">DGTT</option>
-                    <option value="3">Mairie</option>
-                    <option value="3">Fond </option>
-                    <option value="3">APRCE</option>
-                  </select>
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">@</span>
+                    <input type="date" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                  </div>
+                  <div class="card">
+                    <div class="card-body ">
+                      <canvas id="bar"></canvas>
+                    </div>
+                  </div>
+                
                 </div>
-                <div class="col-xl-6">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Taxes</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="3">4 </option>
-                    <option value="3">5</option>
-                  </select>
-                </div>
+              
+                  <div class="col-xl-6">
+                    <div class="input-group flex-nowrap">
+                      <span class="input-group-text" id="addon-wrapping">@</span>
+                      <input type="date" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                    <div class="card">
+                      <div class="card-body ">
+                        <canvas id="pie"></canvas>
+                      </div>
+                    
+                  
+                  </div>
+             
+             
               
               </div>
           <!-- Container-fluid starts-->
-          <div class="container-fluid">
-         
-            <div class="row">
-                <div class="card">
-                  <div class="card-body"></div>
-                </div>
-             
-           
-          </div>
-          
+       
             
         
           </div>
@@ -197,10 +195,29 @@
       new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet','août','septembre', 'octobre', 'novembre', 'decembre'],
+          labels: ['TRESOR', 'DGTT', 'ARPCE', 'OPERATEUR','TIMBRE', 'SWITCH', 'CODAMI','MAIRIE','FOND ROUTIER','CONTROLE TECHNIQUE','FORMATION', 'PROFESSIONEL CONNEXE'],
           datasets: [{
             label: '# of Votes',
             data: [90, 190, 345, 500, 200, 420,1030,980,854,678,731,690],
+            backgroundColor: [
+            'rgba(255, 26, 104, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(0, 0, 0, 0.2)'
+            ],
+        
+            borderColor: [
+            'rgba(255, 26, 104, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(0, 0, 0, 1)'
+            ],
             borderWidth: 1
           }]
         },
@@ -234,10 +251,10 @@
         }
       });
 
-      const ctx3 = document.getElementById('line');
+      const ctx3 = document.getElementById('pie');
       
-      new Chart(ctx1, {
-        type: 'line',
+      new Chart(ctx3, {
+        type: 'pie',
         data: {
           labels: ['TRESOR', 'DGTT', 'ARPCE', 'OPERATEUR', 'SWITCH', 'TEST'],
           datasets: [{
@@ -247,11 +264,7 @@
           }]
         },
         options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
+        
         }
       });
 
